@@ -3,9 +3,32 @@ body {
     text-align: center;
     background-color: #4b4453;
 
+    
+    background-image: url("https://img.magnific.com/premium-photo/space-background-with-realistic-nebula-shining-stars-colorful-cosmos-with-stardust-milky-way-magic-color-galaxy-infinite-universe-starry-night-illustration_294865-8535.jpg?semt=ais_hybrid&w=740&q=80");
+
 }
 
 #board {
     background-color: black;
+    width: 40%;
     
+}
+#over{
+    background-color: greenyellow;
+    display: none;
+    position: absolute;
+    
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 16px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+button {
+    
+    background-color: black;
+    color: greenyellow;
+    left: 50%;
 }
