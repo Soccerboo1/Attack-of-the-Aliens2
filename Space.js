@@ -49,6 +49,11 @@ let gameOver = false;
 
 window.onload = function() {
     board = document.getElementById("board");
+    over = document.getElementById("over");
+    restart = document.getElementById("restart");
+    restart.addEventListener('click', function() {
+                    window.location.reload();
+});
     board.width = boardWidth;
     board.height = boardHeight;
     context = board.getContext("2d"); //used for drawing on the board
@@ -70,15 +75,18 @@ window.onload = function() {
       document.addEventListener("keydown", moveShip);
       document.addEventListener("keyup", shoot);
 }
+ 
 function update()
 {
+    
+    
     requestAnimationFrame(update);
-
+    
     if (gameOver)
     {
         return;
     }
-
+    
     //clear canvas
     context.clearRect(0,0, board.width, board.height);
 
@@ -112,6 +120,12 @@ function update()
             if(alien.y >= ship.y)
             {
                 gameOver = true;
+                over.style.display = "block";
+                restart.style.display = "block";
+                 context.clearRect(0,0, board.width, board.height);
+                return; 
+    
+               
             }
         }
     }
@@ -160,6 +174,7 @@ function update()
     context.font="16px corier";
     context.fillText(score, 5, 20);
 }
+
 
 function moveShip(e) {
     if (gameOver)
@@ -227,3 +242,4 @@ function detectCollision(a, b) {
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
+
